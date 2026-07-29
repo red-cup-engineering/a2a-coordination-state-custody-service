@@ -28,9 +28,11 @@ test("put then get round-trips the causal head", async () => {
   assert.deepEqual(head.value, { count: 1 });
 });
 
-test("environment factory selects the R2 REST carrier when only an API token is available", () => {
-  const custody = createA2aCoordinationStateCustodyFromEnvironment({ API_KEY_CLOUDFLARE_R2_EDIT: "token" }, { createR2RestClient: () => fakeR2() });
-  assert.equal(typeof custody.put, "function");
+test("environment factory retires R2 for thin coordination state", () => {
+  assert.throws(
+    () => createA2aCoordinationStateCustodyFromEnvironment({ API_KEY_CLOUDFLARE_R2_EDIT: "token" }),
+    /R2 custody is retired/u,
+  );
 });
 
 test("successive puts chain causally and get returns the latest", async () => {
