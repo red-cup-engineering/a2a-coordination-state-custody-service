@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/a2a-coordination-state-custody-service",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "description": "Network-authoritative, causally-ordered A2A coordination-state custody over Cloudflare R2.",
   "exports": {
@@ -15,7 +15,7 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@red-cup-engineering/resource-brokerage-service-section": "2.0.4"
+    "@red-cup-engineering/resource-brokerage-service-section": "2.0.5"
   },
   "repository": {
     "type": "git",
